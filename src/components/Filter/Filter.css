@@ -15,23 +15,30 @@
     align-items: center;
 }
 
+.container-tool {
+    display: flex;
+    gap: 1rem;
+}
+
 .filter-box {
     justify-content: space-between;
 }
 
-.filter-tool p {
+.filter-tool span {
+    border-radius: 5px 0 0 5px;
     padding: 7px 10px;
     background: var(--light-grayish-cyan-filter-tablets);
     color: var(--desaturated-dark-cyan);
 }
 
-.filter-tool span {
+.filter-tool button {
+    border-radius: 0 5px 5px 0;
     transition: background .3s;
-    padding: 5px;
+    padding: 6px 8px;
     background: var(--desaturated-dark-cyan);
 }
 
-.filter-tool span:hover {
+.filter-tool button:hover {
     cursor: pointer;
     background: var(--very-dark-grayish-cyan);
 }
