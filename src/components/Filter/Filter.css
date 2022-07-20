@@ -1,0 +1,48 @@
+.filter-box {
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 10px 1px rgb(0 0 0 / 15%);
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--desaturated-dark-cyan);
+    background: #fff;
+    margin-bottom: 1.5rem;
+}
+
+.filter-box,
+.filter-tool {
+    display: flex;
+    align-items: center;
+}
+
+.filter-box {
+    justify-content: space-between;
+}
+
+.filter-tool p {
+    padding: 7px 10px;
+    background: var(--light-grayish-cyan-filter-tablets);
+    color: var(--desaturated-dark-cyan);
+}
+
+.filter-tool span {
+    transition: background .3s;
+    padding: 5px;
+    background: var(--desaturated-dark-cyan);
+}
+
+.filter-tool span:hover {
+    cursor: pointer;
+    background: var(--very-dark-grayish-cyan);
+}
+
+.button-filter {
+    font-size: 1rem;
+    color: var(--desaturated-dark-cyan);
+    background: transparent;
+}
+
+.button-filter:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
