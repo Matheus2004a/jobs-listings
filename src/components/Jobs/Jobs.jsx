@@ -8,7 +8,9 @@ const Jobs = () => {
 
     function showFilterJobs(e) {
         const tool = e.target.textContent
-        setFilters(tool)
+        if (filters.indexOf(tool) === -1) {
+            setFilters([...filters, tool])
+        }
         setShowFilter(true)
     }
 
@@ -19,57 +21,54 @@ const Jobs = () => {
 
     return (
         <main>
-            {showFilter && <Filter name={filters} deleteFilter={removeFilters} />}
+            {showFilter && <Filter typesFilters={filters} deleteFilter={removeFilters} />}
 
-            {
-                jobs.map((item, index) => {
-                    return (
-                        <div className="card-jobs" key={index}>
-                            <figure>
-                                <img src={item.logo} alt="" />
-                                <figcaption>
-                                    <div className="details-job">
-                                        <small className="name-company">{item.company}</small>
-                                        {item.new ? (
-                                            <span className='alerts'>New!</span>
-                                        ) : (
-                                            ""
-                                        )}
-                                        {item.featured ? (
-                                            <span className="alerts">Featured</span>
-                                        ) : (
-                                            ""
-                                        )}
-                                    </div>
-                                    <h3 className='names-jobs'>{item.position}</h3>
+            {jobs.map((item, index) => {
+                return (
+                    <div className={`card-jobs ${item.featured && "card-jobs-featured"}`} key={item.id}>
+                        <figure>
+                            <img src={item.logo} alt={item.company} />
+                            <figcaption>
+                                <div className="details-job">
+                                    <small className="name-company">{item.company}</small>
+                                    {item.new ? (
+                                        <span className='alerts'>New!</span>
+                                    ) : (
+                                        ""
+                                    )}
+                                    {item.featured ? (
+                                        <span className="alerts">Featured</span>
+                                    ) : (
+                                        ""
+                                    )}
+                                </div>
+                                <h3 className='names-jobs'>{item.position}</h3>
 
-                                    <div className="details-job">
-                                        <span>{item.postedAt}</span>
-                                        &middot;
-                                        <span>{item.contract}</span>
-                                        &middot;
-                                        <span>{item.location}</span>
-                                    </div>
-                                </figcaption>
-                            </figure>
+                                <ul className="details-job">
+                                    <li>{item.postedAt}</li>
+                                    &#183;
+                                    <li>{item.contract}</li>
+                                    &#183;
+                                    <li>{item.location}</li>
+                                </ul>
+                            </figcaption>
+                        </figure>
 
-                            <div className="tools-languages">
-                                <span onClick={(e) => showFilterJobs(e)}>{item.role}</span>
-                                <span onClick={(e) => showFilterJobs(e)}>{item.level}</span>
-                                {item.languages.map((language, index) => {
-                                    return (
-                                        <span onClick={(e) => showFilterJobs(e)} key={index}>{language}</span>
-                                    )
-                                })}
-                                {item.tools.map((tool, index) => {
-                                    return (
-                                        <span onClick={(e) => showFilterJobs(e)} key={index}>{tool}</span>
-                                    )
-                                })}
-                            </div>
+                        <div className="tools-languages">
+                            <span onClick={(e) => showFilterJobs(e)}>{item.role}</span>
+                            <span onClick={(e) => showFilterJobs(e)}>{item.level}</span>
+                            {item.languages.map((language, index) => (
+                                <span onClick={(e) => showFilterJobs(e)} key={index}>{language}</span>
+                            )
+                            )}
+                            {item.tools.map((tool, index) => (
+                                <span onClick={(e) => showFilterJobs(e)} key={index}>{tool}</span>
+                            )
+                            )}
                         </div>
-                    )
-                })
+                    </div>
+                )
+            })
             }
         </main>
     )
