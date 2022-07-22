@@ -7,30 +7,30 @@ const Jobs = () => {
     const [showFilter, setShowFilter] = useState(false)
 
     function showFilterJobs(e) {
-        const tool = e.target.textContent
-        if (filters.indexOf(tool) === -1) {
-            setFilters([...filters, tool])
+        const tag = e.target.textContent
+        if (filters.indexOf(tag) === -1) {
+            setFilters([...filters, tag])
         }
         setShowFilter(true)
     }
 
     function removeFilters() {
-        setFilters("")
+        setFilters([])
         setShowFilter(false)
     }
 
     return (
-        <main>
+        <main className={showFilter ? "has-filter" : null}>
             {showFilter && <Filter typesFilters={filters} deleteFilter={removeFilters} />}
 
-            {jobs.map((item, index) => {
+            {jobs.map(item => {
                 return (
                     <div className={`card-jobs ${item.featured && "card-jobs-featured"}`} key={item.id}>
                         <figure>
                             <img src={item.logo} alt={item.company} />
                             <figcaption>
                                 <div className="details-job">
-                                    <small className="name-company">{item.company}</small>
+                                    <h4 className="name-company">{item.company}</h4>
                                     {item.new ? (
                                         <span className='alerts'>New!</span>
                                     ) : (
