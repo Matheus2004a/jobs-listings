@@ -7,6 +7,7 @@
   --light-grayish-cyan-filter-tablets: hsl(180, 31%, 95%);
   --dark-grayish-cyan: hsl(180, 8%, 52%);
   --very-dark-grayish-cyan: hsl(180, 14%, 20%);
+  --very-dark-grey: hsl(0, 0%, 53%);
 }
 
 * {
@@ -35,7 +36,7 @@ main {
   margin-top: 3rem;
 }
 
-main.has-filter{
+main.has-filter {
   margin-top: -1.875rem;
 }
 
@@ -66,7 +67,8 @@ button {
 
 .card-jobs .name-company,
 .card-jobs .names-jobs:hover,
-.tools-languages span, footer a {
+.tools-languages span,
+footer a {
   color: var(--desaturated-dark-cyan);
 }
 
@@ -126,4 +128,45 @@ footer {
   text-align: center;
   margin-top: 3rem;
   padding: 1rem 0;
+}
+
+@media (max-width: 800px) {
+  header {
+    background-image: url("../images/bg-header-mobile.svg");
+  }
+
+  main {
+    gap: 3rem;
+  }
+
+  .card-jobs,
+  .card-jobs figure {
+    display: grid;
+  }
+
+  .card-jobs {
+    padding: 2rem 1.5rem;
+  }
+
+  .card-jobs img {
+    width: calc(100% - 80%);
+    margin-top: -20%;
+  }
+
+  .details-job:last-child {
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--dark-grayish-cyan);
+  }
+
+  .tools-languages {
+    display: flex;
+    justify-content: start;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .tools-languages span {
+    margin: 0;
+  }
 }
