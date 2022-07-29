@@ -1,5 +1,4 @@
-import { useState } from "react"
-import iconClose from "../../../images/icon-remove.svg"
+import iconClose from "../../images/icon-remove.svg"
 import "./Filter.css"
 
 const Filter = (props) => {
