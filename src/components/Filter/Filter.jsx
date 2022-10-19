@@ -1,4 +1,5 @@
-import iconClose from "../../images/icon-remove.svg"
+import { useState } from "react"
+import iconClose from "../../../images/icon-remove.svg"
 import "./Filter.css"
 
 const Filter = (props) => {
@@ -11,7 +12,7 @@ const Filter = (props) => {
             props.deleteFilter()
         }
     }
-    
+
     return (
         <section className="filter-box">
             <div className="container-tool">
