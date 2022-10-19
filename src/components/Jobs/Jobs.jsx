@@ -9,6 +9,12 @@ const Jobs = () => {
 
     const filteredJobs = tags.length > 0 ? jobs.filter(job => tags.includes(job.level)) : []
 
+    console.log(
+        jobs.filter(job => {
+        return tags.includes(job.level) || tags.includes(job.role) || tags.includes(job.tools[0])
+    })
+    )
+    
     function showFilterJobs(e) {
         const tag = e.target.textContent
         if (tags.indexOf(tag) === -1) {
